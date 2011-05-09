@@ -9,7 +9,7 @@ iff "%1" == "-h" .or. "%1" == "-help" .or. "%1" == "/h" .or. "%1" == "/help" the
 endiff
 
 rem polecenia
-echo Prawidlowe srodowisko 4DOS/4NT/TCC w wersji %_4VER
+echo Srodowisko 4DOS/4NT/TCC w wersji %_4VER
 echo.
 
 iff "%1" == "-all" .or. "%1" == "-arch" .or. %# eq 0 then
@@ -37,7 +37,8 @@ echo Makro testuje polecenie @WININFO.
 echo.
 echo Uzycie:
 echo   %0 [-all^|-arch]
-echo Flagi:
+echo Argumenty sa opcjonalne, wywolanie bez flagi jest rownoznaczne fladze -all.
+echo Obslugiwane flagi:
 echo   -arch wyswietla tylko informacje o architekturze
 echo   -all  wyswietla wszystkie informacje
 goto end
