@@ -16,8 +16,12 @@ iff "%1" == "-test" .or. "%#" == "0" then
   echo @master[indeks]  == %@master[indeks]
   unset /m student
   unset /m indeks
-else
+else iff "%#" == "1" then 
   echo @master[%1] == %@master[%1]
+else
+  echo Mozna przekazac tylko jeden argument z linii polecen.
+  echo.
+  goto help
 endiff
 goto end
 
@@ -32,7 +36,7 @@ echo Wywolanie z flaga -test powoduje ustawianie dwoch zmiennych i
 echo wyswietlenie ich wartosci.
 echo Wywolanie bez flagi jest rownoznaczne wywolaniu z flaga -test.
 echo.
-echo Wywolanie z jednym argumentem powoduje wyswietlenie wartosci
+echo Wywolanie z argumentem powoduje wyswietlenie wartosci
 echo zmiennej o nazwie 'variable_name'.
 goto end
 
