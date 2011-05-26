@@ -1,15 +1,16 @@
 @echo off
 
-rem @eval nie dziala w COMMAND.COM i CMD.EXE
+rem sprawdz czy jpsoft
 if not "%@eval[2+2]" == "4" goto helpver
 
+rem sprawdz czy 4NT lub TCC
+if "%_cmdproc" == "4DOS" goto helpver
+
 rem pomoc
-iff "%1" == "-h" .or. "%1" == "-help" .or. "%1" == "/h" .or. "%1" == "/help" then
-  goto help
-endiff
+if "%1" == "-h" .or. "%1" == "-help" .or. "%1" == "/h" .or. "%1" == "/help" .or. "%1" = "-?" .or. "%1" == "/?" goto help
 
 rem polecenia
-echo Srodowisko 4DOS/4NT/TCC w wersji %_4VER
+echo OK. Srodowisko %_cmdproc w wersji %_4ver.
 echo.
 
 iff "%1" == "-all" .or. "%1" == "-arch" .or. %# eq 0 then
@@ -34,18 +35,16 @@ endiff
 
 :help
 echo Makro testuje polecenie @WININFO.
-echo.
 echo Uzycie:
-echo   %0 [-all^|-arch]
-echo Argumenty sa opcjonalne, wywolanie bez flagi jest rownoznaczne fladze -all.
-echo Obslugiwane flagi:
-echo   -arch wyswietla tylko informacje o architekturze
-echo   -all  wyswietla wszystkie informacje
+echo   %0 [-all] : wyswietla tylko informacje o architekturze
+echo   %0 -arch  : wyswietla wszystkie informacje
+echo Wywolanie bez flagi jest rownoznaczne fladze -all.
 goto end
 
 
 :helpver
-echo Makro wymaga srodowiska 4DOS/4NT/TCC. Aktualne srodowisko to:
+echo Makro wymaga srodowiska 4NT lub TCC.
+echo Aktualne srodowisko to:
 ver
 goto end
 
