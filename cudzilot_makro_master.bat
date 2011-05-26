@@ -4,7 +4,7 @@ rem _cmdproc zawiera nazwe shella
 if not "%_cmdproc" == "4DOS" goto helpver
 
 rem pomoc
-if "%1" == "-h" .or. "%1" == "-help" .or. "%1" == "/h" .or. "%1" == "/help" goto help
+if "%1" == "-h" .or. "%1" == "-help" .or. "%1" == "/h" .or. "%1" == "/help" .or. "%1" == "-?" .or. "%1" == "/?" goto help
 
 rem polecenia
 echo OK. Srodowisko 4DOS w wersji %_4ver.
